@@ -1,16 +1,19 @@
 const Place = require('../models/place-model');
 
 class PlaceController {
+  //Get Places
   static async getPlaces(req, res, next) {
     res.send(await Place.find());
   }
 
+  //Get Place
   static async getPlace(req, res) {
     const id = req.params.id;
 
     res.send(await Place.findOne({ _id: id }));
   }
 
+  //Add Place
   static async addPlace(req, res, next) {
     const name = req.body.name;
     const price = req.body.price;
