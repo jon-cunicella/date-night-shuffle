@@ -1,6 +1,6 @@
 import React from 'react';
 import showAlert from './components/showAlert';
-import '../public/stylesheets/App.css';
+// import '../public/stylesheets/App.css';
 
 function App() {
   return (
