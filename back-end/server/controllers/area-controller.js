@@ -1,4 +1,5 @@
-const Area = require('../models/area-model');
+const Area = require("../models/area-model");
+const Place = require("../models/place-model");
 
 class AreaController {
   //get Areas
@@ -9,7 +10,7 @@ class AreaController {
   static async getArea(req, res) {
     const id = req.params.id;
 
-    res.send(await Area.findOne({ _id: id }).populate('places'));
+    res.send(await Area.findOne({ _id: id }).populate("places"));
   }
 
   //add Area
@@ -56,13 +57,13 @@ class AreaController {
     const id = req.params.id;
     const placesToAdd = req.body;
 
-    const areaToAdd = await Area.findById({ _id: id });
-    placesToAdd.forEach(pl => {
-      areaToAdd.places.push(place);
+    const areaToUpdate = await Area.findById({ _id: id });
+    placesToAdd.forEach(place => {
+      areaToUpdate.places.push(place);
     });
-    areaToAdd.save(areaToAdd);
+    areaToUpdate.save(areaToUpdate);
 
-    res.send(await areaToAdd);
+    res.send(await areaToUpdate);
   }
 }
 

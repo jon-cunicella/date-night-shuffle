@@ -1,4 +1,4 @@
-const Place = require('../models/place-model');
+const Place = require("../models/place-model");
 
 class PlaceController {
   //Get Places
@@ -17,10 +17,16 @@ class PlaceController {
   static async addPlace(req, res, next) {
     const name = req.body.name;
     const price = req.body.price;
+    const category = req.body.category;
+    const rating = req.body.rating;
+    const area = req.body.area;
 
     Place.create({
       name: name,
-      price: price
+      price: price,
+      category: category,
+      rating: rating,
+      area: area
     });
 
     res.send(await Place.find());
