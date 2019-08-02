@@ -6,6 +6,4 @@ module.exports = mongoose.model("Place", {
   category: { type: String },
   rating: { type: Number },
   area: { type: String }
-
-  // Rating, reviews, etc..
 });

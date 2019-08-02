@@ -6,6 +6,12 @@ class PlaceController {
     res.send(await Place.find());
   }
 
+  // Get Places by Price
+  static async getPlacesByPrice(req, res) {
+    const price = req.params.price;
+    res.send(await Place.find({ price }));
+  }
+
   //Get Place
   static async getPlace(req, res) {
     const id = req.params.id;

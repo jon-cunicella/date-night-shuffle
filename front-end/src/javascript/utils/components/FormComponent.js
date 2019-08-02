@@ -1,4 +1,5 @@
 import React from "react";
+
 class FormComponent extends React.Component {
   constructor() {
     super();
@@ -8,7 +9,7 @@ class FormComponent extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/api/areas", {
+    fetch("http://localhost:4000/api/areas", {
       headers: {
         "Access-Control-Allow-Origin": "*",
         mode: "cors"
@@ -31,14 +32,15 @@ class FormComponent extends React.Component {
             </option>
           ))}
         </select>
-        <select name="price" id="price-dropdown">
-          <option value="prices">$</option>
-          <option value="prices">$$</option>
-          <option value="prices">$$$</option>
+        <select name="prices" id="price-dropdown">
+          <option value="price">$</option>
+          <option value="price">$$</option>
+          <option value="price">$$$</option>
         </select>
         <select name="category" id="category-dropdown">
           <option value="category">Category One</option>
         </select>
+        <button>Spin to Win</button>
       </form>
     );
   }

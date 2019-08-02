@@ -6,19 +6,22 @@ const AreaController = require("../controllers/area-controller");
 // Add Area
 router.post("/", AreaController.addArea);
 
-/* GET Areas. */
+// GET Areas
 router.get("/", AreaController.getAreas);
 
-// /* GET Area. */
+//  GET Area
 router.get("/:id", AreaController.getArea);
 
-// // Update Area
+// Get Area then Random Place
+router.get("/:id/places/random", AreaController.getRandomPlace);
+
+// Update Area
 router.put("/:id", AreaController.updateArea);
 
-// // Delete Area
+// Delete Area
 router.delete("/:id", AreaController.deleteArea);
 
-//add Place to Area
+// Add Place to Area
 router.put("/:id/addPlaces", AreaController.addPlaces);
 
 module.exports = router;

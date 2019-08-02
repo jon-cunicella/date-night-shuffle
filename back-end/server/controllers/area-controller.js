@@ -13,6 +13,15 @@ class AreaController {
     res.send(await Area.findOne({ _id: id }).populate("places"));
   }
 
+  // Get Random Place from Area
+
+  static async getRandomPlace(req, res, next) {
+    const id = req.params.id;
+    const area = await Area.findOne({ _id: id }).populate("places");
+    const randomIndex = Math.floor(Math.random() * area.places.length);
+    res.send(await area.places[randomIndex]);
+  }
+
   //add Area
   static async addArea(req, res, next) {
     const name = req.body.name;

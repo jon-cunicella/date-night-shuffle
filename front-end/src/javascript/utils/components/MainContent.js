@@ -1,4 +1,5 @@
 import React from "react";
+import PlaceComponent from "./PlaceComponent";
 export default function MainContent() {
   return (
     <main className="content">
@@ -14,8 +15,7 @@ export default function MainContent() {
       </section>
       <section className="selected-item">
         <ul className="selected-item__list">
-          <li className="selected-item__lite__item">Pricing</li>
-          <li className="selected-item__lite__item">Rating</li>
+          <PlaceComponent />
         </ul>
       </section>
     </main>
