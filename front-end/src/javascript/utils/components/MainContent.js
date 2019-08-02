@@ -7,16 +7,12 @@ export default function MainContent() {
         <h1 className="content__title">Big Ball Here</h1>
         <div className="ball-outer">
           <div className="ball-container">
-            <div className="ball-inner">
-              <p className="ball-content">Stuff</p>
-            </div>
+            <div className="ball-inner" />
+            <h3 className="ball-content">
+              <PlaceComponent />
+            </h3>
           </div>
         </div>
-      </section>
-      <section className="selected-item">
-        <ul className="selected-item__list">
-          <PlaceComponent />
-        </ul>
       </section>
     </main>
   );
