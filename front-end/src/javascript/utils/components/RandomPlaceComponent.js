@@ -1,4 +1,6 @@
 import React from "react";
+import FormComponent from "./FormComponent";
+
 class RandomPlaceComponent extends React.Component {
   constructor() {
     super();
@@ -31,12 +33,13 @@ class RandomPlaceComponent extends React.Component {
       <main className="content">
         <section className="content__item">
           <h3 className="restaurant-content">{place.name}</h3>
-          <ul className="placeInfoList">
-            <li>Price: {place.price}</li>
-            <li>Category: {place.category}</li>
-            <li>Rating: {place.rating / 10}</li>
+          <ul className="placeInfo">
+            <li className="placeInfo__price">Price: {place.price}</li>
+            <li className="placeInfo__category">Category: {place.category}</li>
+            <li className="placeInfo__rating">Rating: {place.rating / 10}</li>
           </ul>
         </section>
+        <button className="spinMeRightRoundBaby" onClick={FormComponent.handleClick}>Spin to Win</button>
       </main>
     );
   }

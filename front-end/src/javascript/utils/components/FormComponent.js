@@ -4,8 +4,11 @@ class FormComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      areas: []
+      areas: [],
+      userArea: "",
+      userPrice: ""
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -21,24 +24,38 @@ class FormComponent extends React.Component {
       });
   }
 
+  handleChange(event) {
+    this.setState({ userArea: event.target.value });
+    this.setState({ userPrice: event.target.value });
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+  }
+
   render() {
     const { areas } = this.state;
 
     return (
       <form className="wheel-form">
-        <select name="areas" id="area-dropdown">
+        <select name="areas" id="area-dropdown" onChange={this.handleChange}>
           {areas.map(area => (
-            <option className="area" key={area._id} value={area._id}>
+            <option className="area" key={area._id} value={this.state.userArea}>
               {area.name}
             </option>
           ))}
         </select>
-        <select name="prices" id="price-dropdown">
-          <option value="price">$</option>
-          <option value="price">$$</option>
-          <option value="price">$$$</option>
+        <select name="prices" id="price-dropdown" onChange={this.handleChange}>
+          <option className="price" value={this.state.userPrice}>
+            $
+          </option>
+          <option className="price" value={this.state.userPrice}>
+            $$
+          </option>
+          <option className="price" value={this.state.userPrice}>
+            $$$
+          </option>
         </select>
-        <button type="submit">Spin to Win</button>
       </form>
     );
   }

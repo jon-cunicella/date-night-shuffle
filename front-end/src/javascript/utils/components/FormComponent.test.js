@@ -10,14 +10,16 @@ describe("FormComponent", () => {
   });
 
   test("renders a form element", () => {
-    expect(
-      entryPoint.querySelector(".wheel-form") instanceof HTMLElement
-    ).toBeTruthy();
+    expect(entryPoint.querySelector(".wheel-form").tagName).toMatch("FORM");
   });
-  test("FormComponent contains 2 select elements", () => {
+
+  test("form contains 2 select elements and a button", () => {
     expect(entryPoint.querySelectorAll("select").length).toEqual(2);
+    expect(entryPoint.querySelector("button").tagName).toMatch("BUTTON");
   });
-  test("Area select contains 1 option", () => {
-    expect(entryPoint.querySelectorAll("option").length).toEqual(1);
+
+  test("price selector contains 3 options", () => {
+    const priceSelect = entryPoint.querySelector("#price-dropdown");
+    expect(priceSelect.querySelectorAll("option").length).toEqual(3);
   });
 });

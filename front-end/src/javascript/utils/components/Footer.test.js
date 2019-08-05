@@ -15,8 +15,10 @@ describe("footer", () => {
     ).toBeTruthy();
   });
   test("footer contains a small tag with copyright", () => {
-    expect(
-      entryPoint.querySelector(".copy") instanceof HTMLElement
-    ).toBeTruthy();
+    expect(entryPoint.querySelector(".copy").tagName).toMatch("SMALL");
+
+    expect(entryPoint.querySelector(".copy").textContent).toBe(
+      `© 2019 - Date Night Roulette`
+    );
   });
 });

@@ -15,9 +15,7 @@ describe("navigation menu", () => {
     ).toBeTruthy();
   });
   test("Nav contains a ul element", () => {
-    expect(
-      entryPoint.querySelector(".navigation-list") instanceof HTMLElement
-    ).toBeTruthy();
+    expect(entryPoint.querySelector(".navigation-list").tagName).toMatch("UL");
   });
   test("Nav ul contains 4 list items", () => {
     expect(
