@@ -4,16 +4,16 @@ export default function RenderNav() {
     <nav className="navigation">
       <ul className="navigation-list">
         <li className="navigation-list__item">
-          <a href="#">Home</a>
+          <a href="/#">Home</a>
         </li>
         <li className="navigation-list__item">
-          <a href="#">About</a>
+          <a href="/#">About</a>
         </li>
         <li className="navigation-list__item">
-          <a href="#">Areas</a>
+          <a href="/#">Areas</a>
         </li>
         <li className="navigation-list__item">
-          <a href="#">Places</a>
+          <a href="/#">Places</a>
         </li>
       </ul>
     </nav>

@@ -1,5 +1,5 @@
 import React from "react";
-import MainContent from "./javascript/utils/components/MainContent";
+import RandomPlaceComponent from "./javascript/utils/components/RandomPlaceComponent";
 import FormComponent from "./javascript/utils/components/FormComponent";
 import Footer from "./javascript/utils/components/Footer";
 import Header from "./javascript/utils/components/Header";
@@ -11,7 +11,7 @@ const App = () => {
       <Header />
       <Nav />
       <FormComponent />
-      <MainContent />
+      <RandomPlaceComponent />
       <Footer />
     </div>
   );

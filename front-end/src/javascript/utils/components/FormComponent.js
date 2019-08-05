@@ -23,11 +23,12 @@ class FormComponent extends React.Component {
 
   render() {
     const { areas } = this.state;
+
     return (
       <form className="wheel-form">
         <select name="areas" id="area-dropdown">
           {areas.map(area => (
-            <option key={area._id} value={area._id}>
+            <option className="area" key={area._id} value={area._id}>
               {area.name}
             </option>
           ))}
@@ -37,10 +38,7 @@ class FormComponent extends React.Component {
           <option value="price">$$</option>
           <option value="price">$$$</option>
         </select>
-        <select name="category" id="category-dropdown">
-          <option value="category">Category One</option>
-        </select>
-        <button>Spin to Win</button>
+        <button type="submit">Spin to Win</button>
       </form>
     );
   }

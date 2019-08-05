@@ -68,15 +68,15 @@ ul {
   align-items: center;
 }
 
-.ball-container {
+/* .ball-container {
   display: grid;
   grid-template-areas: 1fr;
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.ball-outer {
+/* .ball-outer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,4 +90,4 @@ ul {
   border-left: 70px solid transparent;
   border-right: 70px solid transparent;
   border-top: 140px solid var(--weldon-blue);
-}
+} */
