@@ -12,6 +12,10 @@ router.get("/", PlaceController.getPlaces);
 // Get Places by Price
 router.get("/:price", PlaceController.getPlacesByPrice);
 
+// Get Sorted Places
+
+router.get("/:price/sorted", PlaceController.getSortedPlaces);
+
 /* GET Place. */
 router.get("/:id", PlaceController.getPlace);
 

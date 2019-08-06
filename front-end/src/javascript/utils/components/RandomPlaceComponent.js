@@ -1,5 +1,4 @@
 import React from "react";
-import FormComponent from "./FormComponent";
 
 class RandomPlaceComponent extends React.Component {
   constructor() {
@@ -7,9 +6,11 @@ class RandomPlaceComponent extends React.Component {
     this.state = {
       place: {}
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
+  handleClick(event) {
+    event.preventDefault();
     fetch(
       `http://localhost:4000/api/areas/5d4313ab4e41702ed0d671be/places/random`,
       {
@@ -39,7 +40,9 @@ class RandomPlaceComponent extends React.Component {
             <li className="placeInfo__rating">Rating: {place.rating / 10}</li>
           </ul>
         </section>
-        <button className="spinMeRightRoundBaby" onClick={FormComponent.handleClick}>Spin to Win</button>
+        <button className="spinMeRightRoundBaby" onClick={this.handleClick}>
+          Spin to Win
+        </button>
       </main>
     );
   }

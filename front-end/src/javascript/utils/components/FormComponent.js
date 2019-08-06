@@ -29,10 +29,6 @@ class FormComponent extends React.Component {
     this.setState({ userPrice: event.target.value });
   }
 
-  handleClick(event) {
-    event.preventDefault();
-  }
-
   render() {
     const { areas } = this.state;
 

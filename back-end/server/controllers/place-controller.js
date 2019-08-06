@@ -12,6 +12,13 @@ class PlaceController {
     res.send(await Place.find({ price }));
   }
 
+  //get Sorted Places
+
+  static async getSortedPlaces(req, res, next) {
+    const price = req.params.price;
+    res.send(await Place.find({ price }).sort({ rating: "desc" }));
+  }
+
   //Get Place
   static async getPlace(req, res) {
     const id = req.params.id;

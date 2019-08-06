@@ -13,6 +13,8 @@ class AreaController {
     res.send(await Area.findOne({ _id: id }).populate("places"));
   }
 
+
+
   // Get Random Place from Area
 
   static async getRandomPlace(req, res, next) {
