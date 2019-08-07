@@ -26,10 +26,10 @@ ul {
   grid-template-rows: 0.5fr 0.5fr 2fr 0.5fr;
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
   grid-template-areas:
-    "header header header header"
-    "form form form form"
-    "main main main main"
-    "footer footer footer footer";
+    'header header header header'
+    'form form form form'
+    'main main main main'
+    'footer footer footer footer';
   min-height: 100vh;
 }
 
@@ -72,4 +72,10 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.place-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-area: main;
 }

@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
-import Header from "./Header";
-import Footer from "./Footer";
-
-const Layout = ({ children, title }) => (
+const Layout = () => (
   <>
-    <Header title={title} />
-    {children}
+    <Header />
     <Footer />
   </>
 );
