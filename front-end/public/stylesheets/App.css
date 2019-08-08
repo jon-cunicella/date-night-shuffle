@@ -23,13 +23,14 @@ ul {
 
 .wrapper {
   display: grid;
-  grid-template-rows: 0.5fr 0.5fr 2fr 0.5fr;
+
+  grid-template-rows: 6rem 1fr 3rem; /* Add second row at 1fr, when we need the form again*/
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
   grid-template-areas:
-    'header header header header'
-    'form form form form'
-    'main main main main'
-    'footer footer footer footer';
+    "header header header header"
+    /* "form form form form" *Uncomment when we get here*/
+    "main main main main"
+    "footer footer footer footer";
   min-height: 100vh;
 }
 
@@ -75,7 +76,22 @@ ul {
 }
 
 .place-card-list {
+  background-color: var(--rasin-black);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 0.5fr);
   grid-area: main;
+}
+
+.place-card {
+  align-items: center;
+  background-color: var(--black-olive);
+  color: var(--burnt-brown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.5rem 1rem;
+  text-align: center;
+  box-shadow: 5px 8px 3px var(--dark-purple);
+  min-height: 10rem;
+  margin-bottom: 1rem;
 }
