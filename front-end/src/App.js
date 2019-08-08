@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import Layout from './javascript/utils/components/Layout';
 import PlaceCardList from './javascript/utils/components/PlaceCardList';
+import FormComponent from './javascript/utils/components/FormComponent';
 
 const App = () => {
   const [areas, setAreas] = useState([]);
   const [title, setTitle] = useState('');
-  const [areaId, setAreaId] = useState('5d4313ab4e41702ed0d671be');
   const [area, setArea] = useState({ places: [] });
-//make a method for this fetch that calls on areaChange handle for formcomponent
-  useEffect(() => {
-    fetch(`http://localhost:4000/api/areas/${areaId}`)
-      .then(res => res.json())
-      .then(area => setArea(area));
 
-    fetch('http://localhost:4000/api/areas/')
-      //Change the fetch to get a single area and add it to this.state
+  
+  // make method to sort by price that changes state of area.places. That way we dont need to hit db
+  useEffect(() => {
+    fetch('http://localhost:4000/api/areas')
       .then(res => res.json())
       .then(areas => setAreas(areas));
-    // Dynamic titles based on the fetch or 'page'
+
     setTitle('Date Night Roulette');
   }, []);
+  const getArea = userAreaId => {
+    fetch(`http://localhost:4000/api/areas/${userAreaId}`)
+      .then(res => res.json())
+      .then(area => setArea(area));
+  };
+
   return (
     <div className="wrapper">
       <Layout title={title}>
+        <FormComponent areas={areas} getArea={getArea} />
         <PlaceCardList places={area.places} />
       </Layout>
     </div>

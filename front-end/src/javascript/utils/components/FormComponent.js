@@ -1,52 +1,42 @@
 import React from 'react';
 
 class FormComponent extends React.Component {
-  constructor() {
+  constructor({ areas, getArea }) {
     super();
     this.state = {
-      areas: [],
+      areas: { areas },
+      area: {},
       userArea: '',
       userPrice: ''
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    fetch('http://localhost:4000/api/areas', {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        mode: 'cors'
-      }
-    })
-      .then(res => res.json())
-      .then(areas => {
-        this.setState({ areas });
-      });
-  }
-
-  handleAreaChange(event) {
-    this.setState({ userArea: event.target.value });
-    this.setState({ userPrice: event.target.value });
-  }
-
-  handleAreaChange(event) {
-    this.setState({ userArea: event.target.value });
-    this.setState({ userPrice: event.target.value });
-  }
+  handleAreaChange = e => {
+    const userAreaId = e.target.value;
+    this.props.getArea(userAreaId);
+  };
 
   render() {
-    const { areas } = this.state;
-
+    const areas = this.props.areas;
     return (
       <form className="wheel-form">
-        <select name="areas" id="area-dropdown" onChange={this.handleChange}>
+        <select
+          name="areas"
+          id="area-dropdown"
+          onChange={this.handleAreaChange}
+        >
+          <option defaultValue="Select Area" />
           {areas.map(area => (
-            <option className="area" key={area._id} value={this.state.userArea}>
+            <option className="areaToSelect" key={area._id} value={area._id}>
               {area.name}
             </option>
           ))}
         </select>
-        <select name="prices" id="price-dropdown" onChange={this.handleChange}>
+        <select
+          name="prices"
+          id="price-dropdown"
+          onChange={this.handlePriceChange}
+        >
           <option className="price" value={this.state.userPrice}>
             $
           </option>

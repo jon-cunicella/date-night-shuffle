@@ -19,7 +19,7 @@ class AreaController {
     const id = req.params.id;
     const area = await Area.findOne({ _id: id }).populate('places');
     const randomIndex = Math.floor(Math.random() * area.places.length);
-    res.send(await area.places[randomIndex]);
+    res.json(await area.places[randomIndex]);
   }
 
   //add Area

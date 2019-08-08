@@ -23,14 +23,13 @@ ul {
 
 .wrapper {
   display: grid;
-
-  grid-template-rows: 6rem 1fr 3rem; /* Add second row at 1fr, when we need the form again*/
+  grid-template-rows: 6rem 12rem 1fr 3rem;
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
   grid-template-areas:
-    "header header header header"
-    /* "form form form form" *Uncomment when we get here*/
-    "main main main main"
-    "footer footer footer footer";
+    'header header header header'
+    'form form form form'
+    'main main main main'
+    'footer footer footer footer';
   min-height: 100vh;
 }
 
