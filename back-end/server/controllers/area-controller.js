@@ -1,25 +1,23 @@
-const Area = require("../models/area-model");
-const Place = require("../models/place-model");
+const Area = require('../models/area-model');
+const Place = require('../models/place-model');
 
 class AreaController {
   //get Areas
   static async getAreas(req, res, next) {
-    res.send(await Area.find());
+    res.json(await Area.find());
   }
   //get Area
   static async getArea(req, res) {
     const id = req.params.id;
 
-    res.send(await Area.findOne({ _id: id }).populate("places"));
+    res.json(await Area.findOne({ _id: id }).populate('places'));
   }
-
-
 
   // Get Random Place from Area
 
   static async getRandomPlace(req, res, next) {
     const id = req.params.id;
-    const area = await Area.findOne({ _id: id }).populate("places");
+    const area = await Area.findOne({ _id: id }).populate('places');
     const randomIndex = Math.floor(Math.random() * area.places.length);
     res.send(await area.places[randomIndex]);
   }
