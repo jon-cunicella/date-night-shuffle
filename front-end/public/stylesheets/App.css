@@ -87,29 +87,52 @@ option {
 .place-card-list {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  column-gap: 50%;
+  column-gap: 65%;
   grid-area: main;
-  transform: translateY(10px);
-  transition: 2000ms;
+  margin-left: 2rem;
 }
 
 .place-card {
-  align-items: center;
   background-color: var(--black-olive);
-  color: var(--burnt-brown);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 8rem 1rem;
-  text-align: center;
   border: 10px solid white;
   border-radius: 15px;
-  box-shadow: 5px 8px 3px black;
-  min-height: 20rem;
-  margin-bottom: 1rem;
+  box-shadow: 9px 12px 3px black;
+  color: var(--burnt-brown);
+  display: grid;
+  font-size: 28px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "priceRating"
+    "name"
+    "ratingPrice";
+  height: 20rem;
+  margin-bottom: 2rem;
+  max-height: 30rem;
+  width: 12rem;
   max-width: 15rem;
 }
 
-.place-card-info {
-  font-size: 28px;
+.place-card__title {
+  display: flex;
+  grid-area: name;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceRating {
+  grid-area: priceRating;
+  padding: 0.5rem;
+}
+
+.priceRating--inverted {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  transform: scaleY(-1);
+}
+
+.place-card__rating--inverted {
+  transform: scaleX(-1);
 }
