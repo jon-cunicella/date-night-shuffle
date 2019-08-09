@@ -17,24 +17,22 @@ ul {
   list-style: none;
 }
 
-.spinMeRightRoundBaby {
-  width: 100px;
-}
-
 .wrapper {
   display: grid;
-  grid-template-rows: 6rem 12rem 1fr 3rem;
-  grid-template-columns: 1fr 1fr 1fr 0.5fr;
+  grid-template-rows: 6rem 1fr 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    'header header header header'
-    'form form form form'
-    'main main main main'
-    'footer footer footer footer';
+    "header header header"
+    "main main main"
+    "footer footer footer";
   min-height: 100vh;
+  background-image: url("../Capture.PNG");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .main-header {
-  background-color: var(--weldon-blue);
   color: var(--dark-purple);
   text-align: center;
   grid-area: header;
@@ -42,22 +40,34 @@ ul {
 
 .wheel-form {
   display: flex;
+  flex-direction: column;
   grid-area: form;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
-.navigation {
-  grid-area: nav;
+select {
+  background-color: var(--black-olive);
+  color: var(--weldon-blue);
+  width: 15rem;
+  margin-top: 1rem;
+  font-size: 24px;
+  border: none;
+  border-radius: 25px;
+}
+
+option {
+  background-color: var(--black-olive);
+  color: var(--weldon-blue);
 }
 
 .footer {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  color: white;
+  display: flex;
   grid-area: footer;
-  background-color: var(--burnt-brown);
-  color: var(--rasin-black);
+  justify-content: center;
 }
 
 .content {
@@ -75,10 +85,12 @@ ul {
 }
 
 .place-card-list {
-  background-color: var(--rasin-black);
   display: grid;
-  grid-template-columns: repeat(3, 0.5fr);
+  grid-template-columns: 0.5fr 0.5fr;
+  column-gap: 50%;
   grid-area: main;
+  transform: translateY(10px);
+  transition: 2000ms;
 }
 
 .place-card {
@@ -88,9 +100,16 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0.5rem 1rem;
+  margin: 8rem 1rem;
   text-align: center;
-  box-shadow: 5px 8px 3px var(--dark-purple);
-  min-height: 10rem;
+  border: 10px solid white;
+  border-radius: 15px;
+  box-shadow: 5px 8px 3px black;
+  min-height: 20rem;
   margin-bottom: 1rem;
+  max-width: 15rem;
+}
+
+.place-card-info {
+  font-size: 28px;
 }
