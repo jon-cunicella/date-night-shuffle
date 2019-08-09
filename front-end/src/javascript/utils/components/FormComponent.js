@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class FormComponent extends React.Component {
   constructor({ areas, getArea }) {
@@ -6,8 +6,8 @@ class FormComponent extends React.Component {
     this.state = {
       areas: { areas },
       area: {},
-      userArea: '',
-      userPrice: ''
+      userArea: "",
+      userPrice: ""
     };
   }
 
@@ -25,7 +25,9 @@ class FormComponent extends React.Component {
           id="area-dropdown"
           onChange={this.handleAreaChange}
         >
-          <option defaultValue="Select Area" />
+          <option value="select-area" disabled selected>
+            Select an Area
+          </option>
           {areas.map(area => (
             <option className="areaToSelect" key={area._id} value={area._id}>
               {area.name}
@@ -37,6 +39,9 @@ class FormComponent extends React.Component {
           id="price-dropdown"
           onChange={this.handlePriceChange}
         >
+          <option value="select-price" disabled selected>
+            Select a Price
+          </option>
           <option className="price" value={this.state.userPrice}>
             $
           </option>

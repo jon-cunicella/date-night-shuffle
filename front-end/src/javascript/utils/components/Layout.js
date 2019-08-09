@@ -1,10 +1,10 @@
-import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
-const Layout = ({ children, title }) => (
+const Layout = ({ children, areas, getArea }) => (
   <>
-    <Header title={title}/>
+    <Header areas={areas} getArea={getArea} />
     {children}
     <Footer />
   </>

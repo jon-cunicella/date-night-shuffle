@@ -1,9 +1,9 @@
 import React from "react";
-const Header = ({ title }) => {
+import FormComponent from "./FormComponent";
+const Header = ({ areas, getArea }) => {
   return (
     <header className="main-header">
-      <h1 className="main-header__title">{title}</h1>
-      {/* Add the sick logo */}
+      <FormComponent areas={areas} getArea={getArea} />
     </header>
   );
 };
