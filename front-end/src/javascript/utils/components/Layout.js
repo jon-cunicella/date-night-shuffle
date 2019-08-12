@@ -1,10 +1,14 @@
-import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
-const Layout = ({ children, areas, getArea }) => (
+const Layout = ({ children, areas, getArea, getUserSelectedPrice }) => (
   <>
-    <Header areas={areas} getArea={getArea} />
+    <Header
+      areas={areas}
+      getArea={getArea}
+      getUserSelectedPrice={getUserSelectedPrice}
+    />
     {children}
     <Footer />
   </>
