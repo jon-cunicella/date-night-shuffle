@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class FormComponent extends React.Component {
   constructor({ areas, getArea }) {
@@ -6,8 +6,8 @@ class FormComponent extends React.Component {
     this.state = {
       areas: { areas },
       area: {},
-      userArea: '',
-      userSelectedPrice: '',
+      userArea: "",
+      userSelectedPrice: "",
       isSelected: false
     };
   }
@@ -16,14 +16,12 @@ class FormComponent extends React.Component {
     const userAreaId = e.target.value;
     this.props.getArea(userAreaId);
     this.setState({ isSelected: true });
-    console.log(userAreaId);
   };
 
   handlePriceChange = e => {
     const userSelectedPrice = e.target.value;
     this.setState({ userSelectedPrice });
     this.props.getUserSelectedPrice(userSelectedPrice);
-    console.log({ userSelectedPrice });
   };
 
   handleFormComponents = ({ isSelected }) => {
@@ -53,13 +51,13 @@ class FormComponent extends React.Component {
             <option value="select-price" disabled selected>
               Select a Price
             </option>
-            <option className="price" value={'$'}>
+            <option className="price" value={"$"}>
               $
             </option>
-            <option className="price" value={'$$'}>
+            <option className="price" value={"$$"}>
               $$
             </option>
-            <option className="price" value={'$$$'}>
+            <option className="price" value={"$$$"}>
               $$$
             </option>
           </select>
