@@ -3,43 +3,18 @@ import React, { useState } from "react";
 const PlaceCard = ({ place }) => {
   const [selectedPlace, setSelectedPlace] = useState({});
 
-  const handlePopup = () => {
-    // Get the modal
-    const modal = document.querySelector(".modal");
-    // Get the button that opens the modal
-    const openButtons = document.querySelectorAll("#open-modal");
-
-    // Get the <span> element that closes the modal
-    const span = document.querySelector(".close-button");
-
-    // When the user clicks on the button, open the modal
-    openButtons.forEach(button => {
-      button.onclick = () => {
-        modal.style.display = "block";
-      };
-    });
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    };
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-  };
+  const handlePopup = () => {};
 
   return (
     <>
       <div className="modal">
         <span className="close-button">&times;</span>
         <div className="modal-content">
-          <h3 className="modal-card__title">{place.name}</h3>
-          <h4 className="modal-card__price"> {place.price}</h4>
-          <small className="modal-card__rating"> {place.rating}</small>
+          <h3 className="modal-card__title">Name: {selectedPlace.name}</h3>
+          <h4 className="modal-card__price">Price: {selectedPlace.price}</h4>
+          <small className="modal-card__rating">
+            Rating: {selectedPlace.rating}
+          </small>
         </div>
       </div>
 
