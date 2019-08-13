@@ -33,13 +33,19 @@ class PlaceController {
     const category = req.body.category;
     const rating = req.body.rating;
     const area = req.body.area;
+    const longitude = req.body.longitude;
+    const latitude = req.body.latitude;
+    const image = req.body.image;
 
     Place.create({
       name: name,
       price: price,
       category: category,
       rating: rating,
-      area: area
+      area: area,
+      longitude: longitude,
+      latitude: latitude,
+      image: image
     });
 
     res.send(await Place.find());
