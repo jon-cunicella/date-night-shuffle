@@ -1,28 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Layout from "./javascript/utils/components/Layout";
 import PlaceCardList from "./javascript/utils/components/PlaceCardList";
-import ReactDOM from "react-dom";
-import Modal from "react-modal";
-Modal.setAppElement("#root");
+import Modal from "./javascript/utils/components/Modal";
 
 const App = () => {
   const [areas, setAreas] = useState([]);
   const [area, setArea] = useState({ places: [] });
   const [userSelectedPrice, setUserSelectedPrice] = useState();
   const [randomPlace, setRandomPlace] = useState({});
-  const [modalIsOpen, setModalOpen] = useState(Boolean);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = "#f00";
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const [showModal, setShowModal] = useState(false);
+  const [userAreaId, setUserAreaId] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:4000/api/areas")
@@ -30,17 +17,30 @@ const App = () => {
       .then(areas => setAreas(areas));
   }, []);
 
-  const updateRandomPlace = userAreaId => {
-    fetch(`http://localhost:4000/api/areas/${userAreaId}/random`)
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const handleRandomModal = () => {
+    fetch(`http://localhost:4000/api/areas/${userAreaId}/places/random`)
       .then(res => res.json())
       .then(randomPlace => setRandomPlace(randomPlace));
-    console.log({ randomPlace });
+    openModal();
   };
 
   const getArea = userAreaId => {
     fetch(`http://localhost:4000/api/areas/${userAreaId}`)
       .then(res => res.json())
       .then(area => setArea(area));
+    setUserAreaId(userAreaId);
+  };
+
+  const getModalState = showModal => {
+    setShowModal(showModal);
   };
 
   const getUserSelectedPrice = userSelectedPrice => {
@@ -57,22 +57,23 @@ const App = () => {
         <PlaceCardList
           places={area.places}
           userSelectedPrice={userSelectedPrice}
+          showModal={showModal}
+          closeModal={closeModal}
+          getModalState={getModalState}
         />
+        <button
+          className="random-place-button"
+          type="button"
+          onClick={handleRandomModal}
+        >
+          I'm Feeling Lucky
+        </button>
       </Layout>
-
-      <button onClick={openModal}>Open Modal</button>
       <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        // style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h2 ref={subtitle => (subtitle = subtitle)}>Restaurant Name</h2>
-        <button onClick={closeModal}>close</button>
-        <div>Content</div>
-        <form />
-      </Modal>
+        showModal={showModal}
+        closeModal={closeModal}
+        place={randomPlace}
+      />
     </div>
   );
 };

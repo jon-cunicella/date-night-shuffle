@@ -1,19 +1,33 @@
-import React from "react";
-
+import React, { useState } from "react";
 import PlaceCard from "./PlaceCard";
 
-const PlaceCardList = ({ places, userSelectedPrice }) => {
+const PlaceCardList = ({
+  places,
+  userSelectedPrice,
+  showModal,
+  closeModal,
+  getModalState
+}) => {
+  const [showCardModal, setShowCardModal] = useState(false);
+  const renderModal = () => {
+    setShowCardModal(true);
+    console.log(showCardModal);
+    getModalState(showModal);
+  };
+
   if (userSelectedPrice === undefined) {
+    // list of unfiltered places
     return (
       <ul className="place-card-list">
         {places.map(place => (
-          <li className="place-card">
+          <li className="place-card" onClick={renderModal}>
             <PlaceCard place={place} />
           </li>
         ))}
       </ul>
     );
-  } else
+  } // filtered list of places
+  else
     return (
       <ul className="place-card-list">
         {places
