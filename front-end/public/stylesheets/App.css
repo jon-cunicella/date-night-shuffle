@@ -197,3 +197,27 @@ option {
 .display-none {
   display: none;
 }
+
+@media only screen and (max-width: 600px) {
+  wrapper {
+    display: grid;
+    grid-template-rows: 6rem 1fr 3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      'header header header'
+      'main main main'
+      'footer footer footer';
+    min-height: 100vh;
+    background-image: url('../Capture.PNG');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .place-card-list {
+    display: grid;
+    grid-template-columns: 0.5fr;
+    grid-area: main;
+    margin: 0 auto;
+  }
+}
