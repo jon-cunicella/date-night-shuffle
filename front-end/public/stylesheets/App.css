@@ -118,6 +118,7 @@ option {
   max-height: 30rem;
   width: 12rem;
   max-width: 15rem;
+  font-size: 1.4rem;
 }
 
 .place-card__title {
