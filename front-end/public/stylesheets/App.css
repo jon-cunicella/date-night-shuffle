@@ -174,8 +174,7 @@ option {
 }
 
 .modal-image__area {
-  width: 40vw;
-  max-width: 40vw;
+  height: 70vh;
 }
 
 .modal-content {
