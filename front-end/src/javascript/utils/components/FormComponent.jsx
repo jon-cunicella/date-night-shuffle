@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class FormComponent extends React.Component {
   constructor({ areas, getArea }) {
@@ -6,8 +6,8 @@ class FormComponent extends React.Component {
     this.state = {
       areas: { areas },
       area: {},
-      userArea: "",
-      userSelectedPrice: "",
+      userArea: '',
+      userSelectedPrice: '',
       isSelected: false
     };
   }
@@ -24,7 +24,7 @@ class FormComponent extends React.Component {
     this.props.getUserSelectedPrice(userSelectedPrice);
   };
 
-  handleFormComponents = ({ isSelected }) => {
+  handleFormComponents = ({ isSelected, children }) => {
     if (isSelected) {
       const areas = this.props.areas;
       return (
@@ -43,6 +43,7 @@ class FormComponent extends React.Component {
               </option>
             ))}
           </select>
+          <children />
           <select
             name="prices"
             id="price-dropdown"
@@ -51,13 +52,13 @@ class FormComponent extends React.Component {
             <option value="select-price" disabled selected>
               Select a Price
             </option>
-            <option className="price" value={"$"}>
+            <option className="price" value={'$'}>
               $
             </option>
-            <option className="price" value={"$$"}>
+            <option className="price" value={'$$'}>
               $$
             </option>
-            <option className="price" value={"$$$"}>
+            <option className="price" value={'$$$'}>
               $$$
             </option>
           </select>

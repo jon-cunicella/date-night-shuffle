@@ -54,7 +54,7 @@ const App = () => {
   };
 
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Layout
         areas={areas}
         getArea={getArea}
@@ -68,8 +68,8 @@ const App = () => {
           getPlaceCardModalState={getPlaceCardModalState}
         />
         <button
-          className='random-place-button'
-          type='button'
+          className="random-place-button"
+          type="button"
           onClick={handleRandomModal}
         >
           I'm Feeling Lucky
