@@ -15,10 +15,7 @@ const RandomModal = ({ closeRandomModal, showRandomModal, place }) => {
           <div className="modal-content__container">
             <h1 className="modal-place__title">{place.name}</h1>
             <div className="modal-content__box">
-              <small className="modal-place__price">
-                {' '}
-                Price: {place.price}
-              </small>
+              <small className="modal-place__price">Price: {place.price}</small>
               <small className="modal-place__rating">
                 Rating: {place.rating}
               </small>
