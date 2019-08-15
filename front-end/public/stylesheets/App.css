@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,7 +12,8 @@ a {
 }
 
 html {
-  font: 18px/1.5 serif;
+  font-family: 'Roboto', serif;
+  font: 18px/1.5;
   --rasin-black: #252422;
   --dark-purple: #39222e;
   --burnt-brown: #a37774;
@@ -103,13 +106,13 @@ option {
   border-radius: 15px;
   box-shadow: 9px 12px 3px black;
   color: var(--burnt-brown);
-  display: grid;
+  /* display: grid; */
   font-size: 28px;
-  grid-template-rows: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
     'priceRating'
     'name'
-    'ratingPrice';
+    'ratingPrice'; */
   height: 20rem;
   margin-bottom: 2rem;
   max-height: 30rem;
@@ -140,6 +143,11 @@ option {
 
 .place-card__rating--inverted {
   transform: scaleX(-1);
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-around;
 }
 
 .modal {
@@ -201,6 +209,25 @@ option {
   display: none;
 }
 
+.random-place-button {
+  position: absolute;
+  margin: 0 auto;
+}
+
+.card-wrapper {
+  /* opacity: 0.6; */
+  min-height: 100%;
+  background-size: cover;
+}
+
+.overlay {
+  color: var(--weldon-blue);
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  height: 19rem;
+}
+
 @media only screen and (max-width: 600px) {
   wrapper {
     display: grid;
@@ -242,7 +269,6 @@ option {
   }
 
   .modal-image__area {
-    width: 65vw;
-    max-width: 80vw;
+    height: 20vh;
   }
 }
