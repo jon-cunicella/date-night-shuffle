@@ -12,6 +12,9 @@ const App = () => {
   const [showRandomModal, setShowRandomModal] = useState(false);
   const [showPlaceCardModal, setShowPlaceCardModal] = useState(false);
   const [userAreaId, setUserAreaId] = useState('');
+  const [singlePlaceId, setSinglePlaceId] = useState('');
+  const [singleModalPlace, setSingleModalPlace] = useState({});
+  const [showCardModal, setShowCardModal] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:4000/api/areas')
@@ -19,12 +22,30 @@ const App = () => {
       .then(areas => setAreas(areas));
   }, []);
 
+  const updateSinglePlaceId = id => {
+    setSinglePlaceId(id);
+    // console.log(singlePlaceId);
+  };
+
+  const updateSingleModalPlace = place => {
+    fetch(`http://localhost:4000/api/places/${place._id}`)
+      .then(res => res.json())
+      .then(singleModalPlace => setSingleModalPlace(singleModalPlace));
+    console.log(singleModalPlace);
+    console.log(place._id);
+  };
+
   const openRandomModal = () => {
     setShowRandomModal(true);
   };
 
   const closeRandomModal = () => {
     setShowRandomModal(false);
+  };
+  const renderModal = () => {
+    setShowCardModal(true);
+    // console.log(showPlaceCardModal);
+    getPlaceCardModalState(showCardModal);
   };
 
   const closePlaceCardModal = () => {
@@ -66,6 +87,9 @@ const App = () => {
           showPlaceCardModal={showPlaceCardModal}
           closePlaceCardModal={closePlaceCardModal}
           getPlaceCardModalState={getPlaceCardModalState}
+          setSinglePlaceId={updateSinglePlaceId}
+          updateSingleModalPlace={updateSingleModalPlace}
+          renderModal={renderModal}
         />
         <button
           className='random-place-button'
@@ -78,7 +102,7 @@ const App = () => {
       <PlaceCardModal
         showPlaceCardModal={showPlaceCardModal}
         closePlaceCardModal={closePlaceCardModal}
-        place={area.place}
+        place={singleModalPlace}
       />
       <RandomModal
         showRandomModal={showRandomModal}
