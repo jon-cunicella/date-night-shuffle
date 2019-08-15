@@ -13,6 +13,13 @@ const RandomModal = ({ closeRandomModal, showRandomModal, place }) => {
         </button>
         <div className="modal-content">
           <div className="modal-content__container">
+            <div className="modal-image">
+              <img
+                className="modal-image__area"
+                src={place.image}
+                alt="Restaurant"
+              />
+            </div>
             <h1 className="modal-place__title">{place.name}</h1>
             <div className="modal-content__box">
               <small className="modal-place__price">Price: {place.price}</small>
@@ -21,13 +28,6 @@ const RandomModal = ({ closeRandomModal, showRandomModal, place }) => {
               </small>
             </div>
           </div>
-        </div>
-        <div className="modal-image">
-          <img
-            className="modal-image__area"
-            src={place.image}
-            alt="Restaurant"
-          />
         </div>
       </section>
     </div>
