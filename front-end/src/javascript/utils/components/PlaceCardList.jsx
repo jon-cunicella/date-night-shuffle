@@ -4,9 +4,6 @@ import PlaceCard from './PlaceCard';
 const PlaceCardList = ({
   places,
   userSelectedPrice,
-  showPlaceCardModal,
-  getPlaceCardModalState,
-  setSinglePlaceId,
   updateSingleModalPlace,
   renderModal
 }) => {

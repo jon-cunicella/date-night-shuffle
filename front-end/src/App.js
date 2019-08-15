@@ -12,7 +12,6 @@ const App = () => {
   const [showRandomModal, setShowRandomModal] = useState(false);
   const [showPlaceCardModal, setShowPlaceCardModal] = useState(false);
   const [userAreaId, setUserAreaId] = useState('');
-  const [singlePlaceId, setSinglePlaceId] = useState('');
   const [singleModalPlace, setSingleModalPlace] = useState({});
   const [showCardModal, setShowCardModal] = useState(false);
 
@@ -21,11 +20,6 @@ const App = () => {
       .then(res => res.json())
       .then(areas => setAreas(areas));
   }, []);
-
-  const updateSinglePlaceId = id => {
-    setSinglePlaceId(id);
-    // console.log(singlePlaceId);
-  };
 
   const updateSingleModalPlace = place => {
     fetch(`http://localhost:4000/api/places/${place._id}`)
@@ -84,10 +78,6 @@ const App = () => {
         <PlaceCardList
           places={area.places}
           userSelectedPrice={userSelectedPrice}
-          showPlaceCardModal={showPlaceCardModal}
-          closePlaceCardModal={closePlaceCardModal}
-          getPlaceCardModalState={getPlaceCardModalState}
-          setSinglePlaceId={updateSinglePlaceId}
           updateSingleModalPlace={updateSingleModalPlace}
           renderModal={renderModal}
         />
