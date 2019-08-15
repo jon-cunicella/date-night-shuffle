@@ -25,8 +25,6 @@ const App = () => {
     fetch(`http://localhost:4000/api/places/${place._id}`)
       .then(res => res.json())
       .then(singleModalPlace => setSingleModalPlace(singleModalPlace));
-    console.log(singleModalPlace);
-    console.log(place._id);
   };
 
   const openRandomModal = () => {
@@ -89,11 +87,13 @@ const App = () => {
           I'm Feeling Lucky
         </button>
       </Layout>
-      <PlaceCardModal
-        showPlaceCardModal={showPlaceCardModal}
-        closePlaceCardModal={closePlaceCardModal}
-        place={singleModalPlace}
-      />
+      {showCardModal && (
+        <PlaceCardModal
+          showPlaceCardModal={showPlaceCardModal}
+          closePlaceCardModal={closePlaceCardModal}
+          place={singleModalPlace}
+        />
+      )}
       <RandomModal
         showRandomModal={showRandomModal}
         closeRandomModal={closeRandomModal}
