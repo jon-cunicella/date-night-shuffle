@@ -2,8 +2,10 @@
   border-radius: 25px;
   outline: none;
   width: 15rem;
-  font-size: 20px;
+  font-size: 24px;
   text-align: left;
   color: var(--black-olive);
   background-color: var(--weldon-blue);
+  border: none;
+  text-align: center;
 }

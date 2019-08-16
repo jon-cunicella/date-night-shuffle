@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleMap from './GoogleMap.jsx';
 
 const RandomModal = ({ closeRandomModal, showRandomModal, place }) => {
   const showHideClassName = showRandomModal
@@ -8,9 +9,7 @@ const RandomModal = ({ closeRandomModal, showRandomModal, place }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <button className="modal-button" onClick={closeRandomModal}>
-          &times;
-        </button>
+        <button className="modal-button" onClick={closeRandomModal} />
         <div className="modal-content">
           <div className="modal-content__container">
             <div className="modal-image">

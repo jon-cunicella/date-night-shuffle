@@ -35,7 +35,6 @@ img {
 .area-selected {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: row;
   padding-top: 1rem;
 }
@@ -49,12 +48,11 @@ img {
 
 .wrapper {
   display: grid;
-  grid-template-rows: 6rem 1fr 3rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 6rem auto 3rem;
   grid-template-areas:
-    'header header header'
-    'main main main'
-    'footer footer footer';
+    'header'
+    'main'
+    'footer';
   min-height: 100vh;
   background-image: url('../Capture.JPG');
   background-size: cover;
@@ -92,6 +90,14 @@ option {
   color: var(--weldon-blue);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
 .footer {
   align-items: center;
   color: white;
@@ -117,18 +123,20 @@ option {
 .place-card-list {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  column-gap: 50%;
+  grid-gap: 2rem 50%;
   grid-area: main;
   /* height: 50%;
   width: 50%; */
 }
 
 .place-card {
+  align-self: center;
+  justify-self: center;
   background-color: var(--black-olive);
   border: 10px solid white;
   border-radius: 15px;
   box-shadow: 9px 12px 3px black;
-  color: var(--burnt-brown);
+  color: black;
   /* display: grid; */
   font-size: 28px;
   /* grid-template-rows: repeat(3, 1fr);
@@ -137,7 +145,6 @@ option {
     'name'
     'ratingPrice'; */
   height: 20rem;
-  margin-bottom: 2rem;
   max-height: 30rem;
   width: 12rem;
   max-width: 15rem;
@@ -185,7 +192,7 @@ option {
 
 .modal-main {
   position: fixed;
-  background: white;
+  background: #252422;
   width: 80%;
   height: 85%;
   top: 50%;
@@ -197,6 +204,11 @@ option {
 .modal-button {
   margin: 0.5rem;
   width: 1rem;
+  height: 1.15rem;
+  background-size: cover;
+  background-image: url('../Neon-Close-Button.png');
+  background-color: #252525;
+  border: none;
 }
 
 .modal-image {
@@ -206,23 +218,32 @@ option {
 }
 
 .modal-image__area {
-  height: 70vh;
+  height: 40vh;
+}
+
+.google-map {
+  width: 2vw;
 }
 
 .modal-content {
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-text-stroke: 0.5px white;
 }
 
 .modal-content__box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: #7f989b;
+  -webkit-text-stroke: 0.5px white;
 }
 
 .modal-place__title {
   text-align: center;
+  color: #7f989b;
+  -webkit-text-stroke: 0.5px white;
 }
 
 .display-block {
@@ -243,9 +264,9 @@ option {
 }
 
 .overlay {
-  color: var(--weldon-blue);
+  color: #f7cc94ee;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.3);
   background-size: cover;
   height: 19rem;
 }
@@ -275,7 +296,7 @@ option {
 
   .modal-main {
     position: fixed;
-    background: white;
+    background: #666666;
     width: 70%;
     height: 70%;
     top: 50%;

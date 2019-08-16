@@ -16,9 +16,9 @@ const PlaceCardList = ({
   if (userSelectedPrice === undefined) {
     // list of unfiltered places
     return (
-      <ul className='place-card-list'>
+      <ul className="place-card-list">
         {places.map(place => (
-          <li className='place-card' onClick={() => handleOnClick(place)}>
+          <li className="place-card" onClick={() => handleOnClick(place)}>
             <PlaceCard place={place} />
           </li>
         ))}
@@ -27,11 +27,15 @@ const PlaceCardList = ({
   } // filtered list of places
   else
     return (
-      <ul className='place-card-list'>
+      <ul className="place-card-list">
         {places
           .filter(place => place.price === userSelectedPrice)
           .map(place => (
-            <li className='place-card' key={place._id}>
+            <li
+              className="place-card"
+              key={place._id}
+              onClick={() => handleOnClick(place)}
+            >
               <PlaceCard place={place} />
             </li>
           ))}
