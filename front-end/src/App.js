@@ -3,6 +3,7 @@ import Layout from './javascript/utils/components/Layout';
 import PlaceCardList from './javascript/utils/components/PlaceCardList';
 import RandomModal from './javascript/utils/components/RandomModal';
 import PlaceCardModal from './javascript/utils/components/PlaceCardModal';
+import ButtonComponent from './javascript/utils/components/ButtonComponent';
 
 const App = () => {
   const [areas, setAreas] = useState([]);
@@ -67,11 +68,12 @@ const App = () => {
   };
 
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Layout
         areas={areas}
         getArea={getArea}
         getUserSelectedPrice={getUserSelectedPrice}
+        handleRandomModal={handleRandomModal}
       >
         <PlaceCardList
           places={area.places}
@@ -79,13 +81,6 @@ const App = () => {
           updateSingleModalPlace={updateSingleModalPlace}
           renderModal={renderModal}
         />
-        <button
-          className='random-place-button'
-          type='button'
-          onClick={handleRandomModal}
-        >
-          I'm Feeling Lucky
-        </button>
       </Layout>
       {showCardModal && (
         <PlaceCardModal

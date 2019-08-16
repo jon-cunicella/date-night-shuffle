@@ -36,6 +36,7 @@ class PlaceController {
     const longitude = req.body.longitude;
     const latitude = req.body.latitude;
     const image = req.body.image;
+    const areaImage = req.body.areaImage;
 
     Place.create({
       name: name,
@@ -45,7 +46,8 @@ class PlaceController {
       area: area,
       longitude: longitude,
       latitude: latitude,
-      image: image
+      image: image,
+      areaImage: areaImage
     });
 
     res.send(await Place.find());

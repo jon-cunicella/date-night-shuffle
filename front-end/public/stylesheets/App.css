@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,7 +12,8 @@ a {
 }
 
 html {
-  font: 18px/1.5 serif;
+  font-family: 'Roboto', serif;
+  font: 18px/1.5;
   --rasin-black: #252422;
   --dark-purple: #39222e;
   --burnt-brown: #a37774;
@@ -21,17 +24,39 @@ html {
 ul {
   list-style: none;
 }
+body::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+.area-selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 1rem;
+}
+
+.or-selector {
+  font-size: 2rem;
+  color: var(--weldon-blue);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
 .wrapper {
   display: grid;
   grid-template-rows: 6rem 1fr 3rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "header header header"
-    "main main main"
-    "footer footer footer";
+    'header header header'
+    'main main main'
+    'footer footer footer';
   min-height: 100vh;
-  background-image: url("../Capture.PNG");
+  background-image: url('../Capture.JPG');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -53,13 +78,13 @@ ul {
 }
 
 select {
-  background-color: var(--black-olive);
-  color: var(--weldon-blue);
-  width: 15rem;
-  margin-top: 1rem;
+  background-color: var(--weldon-blue);
+  color: var(--black-olive);
   font-size: 24px;
   border: none;
   border-radius: 25px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 option {
@@ -94,7 +119,8 @@ option {
   grid-template-columns: 0.5fr 0.5fr;
   column-gap: 50%;
   grid-area: main;
-  margin-left: 2rem;
+  /* height: 50%;
+  width: 50%; */
 }
 
 .place-card {
@@ -103,18 +129,19 @@ option {
   border-radius: 15px;
   box-shadow: 9px 12px 3px black;
   color: var(--burnt-brown);
-  display: grid;
+  /* display: grid; */
   font-size: 28px;
-  grid-template-rows: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-    "priceRating"
-    "name"
-    "ratingPrice";
+    'priceRating'
+    'name'
+    'ratingPrice'; */
   height: 20rem;
   margin-bottom: 2rem;
   max-height: 30rem;
   width: 12rem;
   max-width: 15rem;
+  font-size: 1.4rem;
 }
 
 .place-card__title {
@@ -142,6 +169,11 @@ option {
   transform: scaleX(-1);
 }
 
+.card-content {
+  display: flex;
+  justify-content: space-around;
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -155,10 +187,42 @@ option {
   position: fixed;
   background: white;
   width: 80%;
-  height: 80%;
+  height: 85%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 150px 150px;
+}
+
+.modal-button {
+  margin: 0.5rem;
+  width: 1rem;
+}
+
+.modal-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image__area {
+  height: 70vh;
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-place__title {
+  text-align: center;
 }
 
 .display-block {
@@ -167,4 +231,66 @@ option {
 
 .display-none {
   display: none;
+}
+
+.random-place-button {
+}
+
+.card-wrapper {
+  /* opacity: 0.6; */
+  min-height: 100%;
+  background-size: cover;
+}
+
+.overlay {
+  color: var(--weldon-blue);
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  height: 19rem;
+}
+
+@media only screen and (max-width: 600px) {
+  wrapper {
+    display: grid;
+    grid-template-rows: 6rem 1fr 3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      'header header header'
+      'main main main'
+      'footer footer footer';
+    min-height: 100vh;
+    background-image: url('../Capture.PNG');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .place-card-list {
+    display: grid;
+    grid-template-columns: 0.5fr;
+    grid-area: main;
+    margin: 0 auto;
+  }
+
+  .modal-main {
+    position: fixed;
+    background: white;
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 150px 150px;
+  }
+
+  .modal-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-image__area {
+    height: 20vh;
+  }
 }
