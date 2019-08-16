@@ -4,4 +4,6 @@
   width: 15rem;
   font-size: 20px;
   text-align: left;
+  color: var(--black-olive);
+  background-color: var(--weldon-blue);
 }

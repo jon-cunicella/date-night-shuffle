@@ -24,6 +24,9 @@ html {
 ul {
   list-style: none;
 }
+body::-webkit-scrollbar {
+  width: 0 !important;
+}
 
 img {
   max-width: 100%;
@@ -35,12 +38,13 @@ img {
   align-items: center;
   flex-direction: row;
   padding-top: 1rem;
-  padding: 2rem;
 }
 
 .or-selector {
   font-size: 2rem;
   color: var(--weldon-blue);
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .wrapper {
@@ -52,7 +56,7 @@ img {
     'main main main'
     'footer footer footer';
   min-height: 100vh;
-  background-image: url('../Capture.PNG');
+  background-image: url('../Capture.JPG');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -74,12 +78,13 @@ img {
 }
 
 select {
-  background-color: var(--black-olive);
-  color: var(--weldon-blue);
-  width: 15rem;
+  background-color: var(--weldon-blue);
+  color: var(--black-olive);
   font-size: 24px;
   border: none;
   border-radius: 25px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 option {
@@ -114,7 +119,8 @@ option {
   grid-template-columns: 0.5fr 0.5fr;
   column-gap: 50%;
   grid-area: main;
-  margin-left: 2rem;
+  /* height: 50%;
+  width: 50%; */
 }
 
 .place-card {

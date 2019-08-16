@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const PlaceCard = ({ place }) => {
-  const styles = { backgroundImage: `url(${place.image})` };
+  const styles = { backgroundImage: `url(${place.areaImage})` };
   return (
     <>
       <div style={styles} className="card-wrapper">

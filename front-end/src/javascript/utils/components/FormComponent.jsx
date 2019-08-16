@@ -53,7 +53,7 @@ class FormComponent extends React.Component {
               onChange={this.handlePriceChange}
             >
               <option value="select-price" disabled selected>
-                Select a Price
+                Filter by Price
               </option>
               <option className="price" value={'$'}>
                 $
