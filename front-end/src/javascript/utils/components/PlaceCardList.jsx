@@ -4,21 +4,32 @@ import PlaceCard from './PlaceCard';
 const PlaceCardList = ({
   places,
   userSelectedPrice,
-  showPlaceCardModal,
-  getPlaceCardModalState
+  updateSingleModalPlace,
+  renderModal
 }) => {
+
   const [showCardModal, setShowPlaceCardModal] = useState(false);
   const renderModal = () => {
     setShowPlaceCardModal(true);
     console.log(showPlaceCardModal);
     getPlaceCardModalState(showCardModal);
   };
+
+  async function handleOnClick(place) {
+    await updateSingleModalPlace(place);
+    await renderModal();
+    // console.log(place.latitude);
+  }
+
+
   if (userSelectedPrice === undefined) {
     // list of unfiltered places
     return (
       <ul className="place-card-list">
         {places.map(place => (
-          <li className="place-card" onClick={renderModal}>
+
+          <li className='place-card' onClick={() => handleOnClick(place)}>
+
             <PlaceCard place={place} />
           </li>
         ))}

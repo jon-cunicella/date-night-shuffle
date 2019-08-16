@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+
+import React from 'react';
+
 
 const PlaceCard = ({ place }) => {
   const styles = { backgroundImage: `url(${place.areaImage})` };
   return (
     <>
+
       <div style={styles} className="card-wrapper">
         <div className="overlay">
           <h3 className="place-card__title">{place.name}</h3>
@@ -12,6 +15,7 @@ const PlaceCard = ({ place }) => {
             <small className="place-card__rating"> {place.rating}</small>
           </div>
         </div>
+
       </div>
     </>
   );
