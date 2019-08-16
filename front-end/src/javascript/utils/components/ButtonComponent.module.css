@@ -1,0 +1,7 @@
+.button {
+  border-radius: 25px;
+  outline: none;
+  width: 15rem;
+  font-size: 20px;
+  text-align: left;
+}

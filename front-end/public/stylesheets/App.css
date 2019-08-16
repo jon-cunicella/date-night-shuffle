@@ -25,6 +25,24 @@ ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+}
+
+.area-selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 1rem;
+  padding: 2rem;
+}
+
+.or-selector {
+  font-size: 2rem;
+  color: var(--weldon-blue);
+}
+
 .wrapper {
   display: grid;
   grid-template-rows: 6rem 1fr 3rem;
@@ -59,7 +77,6 @@ select {
   background-color: var(--black-olive);
   color: var(--weldon-blue);
   width: 15rem;
-  margin-top: 1rem;
   font-size: 24px;
   border: none;
   border-radius: 25px;
@@ -211,8 +228,6 @@ option {
 }
 
 .random-place-button {
-  position: absolute;
-  margin: 0 auto;
 }
 
 .card-wrapper {
