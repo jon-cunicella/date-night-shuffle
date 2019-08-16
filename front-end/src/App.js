@@ -1,46 +1,66 @@
-import React, { useEffect, useState } from "react";
-import Layout from "./javascript/utils/components/Layout";
-import PlaceCardList from "./javascript/utils/components/PlaceCardList";
-import ReactDOM from "react-dom";
-import Modal from "react-modal";
-Modal.setAppElement("#root");
+import React, { useEffect, useState } from 'react';
+import Layout from './javascript/utils/components/Layout';
+import PlaceCardList from './javascript/utils/components/PlaceCardList';
+import RandomModal from './javascript/utils/components/RandomModal';
+import PlaceCardModal from './javascript/utils/components/PlaceCardModal';
+import ButtonComponent from './javascript/utils/components/ButtonComponent';
 
 const App = () => {
   const [areas, setAreas] = useState([]);
   const [area, setArea] = useState({ places: [] });
   const [userSelectedPrice, setUserSelectedPrice] = useState();
   const [randomPlace, setRandomPlace] = useState({});
-  const [modalIsOpen, setModalOpen] = useState(Boolean);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = "#f00";
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const [showRandomModal, setShowRandomModal] = useState(false);
+  const [showPlaceCardModal, setShowPlaceCardModal] = useState(false);
+  const [userAreaId, setUserAreaId] = useState('');
+  const [singleModalPlace, setSingleModalPlace] = useState({});
+  const [showCardModal, setShowCardModal] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/areas")
+    fetch('http://localhost:4000/api/areas')
       .then(res => res.json())
       .then(areas => setAreas(areas));
   }, []);
 
-  const updateRandomPlace = userAreaId => {
-    fetch(`http://localhost:4000/api/areas/${userAreaId}/random`)
+  const updateSingleModalPlace = place => {
+    fetch(`http://localhost:4000/api/places/${place._id}`)
+      .then(res => res.json())
+      .then(singleModalPlace => setSingleModalPlace(singleModalPlace));
+  };
+
+  const openRandomModal = () => {
+    setShowRandomModal(true);
+  };
+
+  const closeRandomModal = () => {
+    setShowRandomModal(false);
+  };
+  const renderModal = () => {
+    setShowCardModal(true);
+    // console.log(showPlaceCardModal);
+    getPlaceCardModalState(showCardModal);
+  };
+
+  const closePlaceCardModal = () => {
+    setShowPlaceCardModal(false);
+  };
+
+  const handleRandomModal = () => {
+    fetch(`http://localhost:4000/api/areas/${userAreaId}/places/random`)
       .then(res => res.json())
       .then(randomPlace => setRandomPlace(randomPlace));
-    console.log({ randomPlace });
+    openRandomModal();
   };
 
   const getArea = userAreaId => {
     fetch(`http://localhost:4000/api/areas/${userAreaId}`)
       .then(res => res.json())
       .then(area => setArea(area));
+    setUserAreaId(userAreaId);
+  };
+
+  const getPlaceCardModalState = showPlaceCardModal => {
+    setShowPlaceCardModal(showPlaceCardModal);
   };
 
   const getUserSelectedPrice = userSelectedPrice => {
@@ -53,26 +73,27 @@ const App = () => {
         areas={areas}
         getArea={getArea}
         getUserSelectedPrice={getUserSelectedPrice}
+        handleRandomModal={handleRandomModal}
       >
         <PlaceCardList
           places={area.places}
           userSelectedPrice={userSelectedPrice}
+          updateSingleModalPlace={updateSingleModalPlace}
+          renderModal={renderModal}
         />
       </Layout>
-
-      <button onClick={openModal}>Open Modal</button>
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        // style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h2 ref={subtitle => (subtitle = subtitle)}>Restaurant Name</h2>
-        <button onClick={closeModal}>close</button>
-        <div>Content</div>
-        <form />
-      </Modal>
+      {showCardModal && (
+        <PlaceCardModal
+          showPlaceCardModal={showPlaceCardModal}
+          closePlaceCardModal={closePlaceCardModal}
+          place={singleModalPlace}
+        />
+      )}
+      <RandomModal
+        showRandomModal={showRandomModal}
+        closeRandomModal={closeRandomModal}
+        place={randomPlace}
+      />
     </div>
   );
 };

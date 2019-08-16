@@ -1,28 +1,28 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-const PlaceController = require("../controllers/place-controller");
+const PlaceController = require('../controllers/place-controller');
 
 // Add Place
-router.post("/", PlaceController.addPlace);
+router.post('/', PlaceController.addPlace);
 
 /* GET Places. */
-router.get("/", PlaceController.getPlaces);
+router.get('/', PlaceController.getPlaces);
 
 // Get Places by Price
-router.get("/:price", PlaceController.getPlacesByPrice);
+router.get('/price/:price', PlaceController.getPlacesByPrice);
 
 // Get Sorted Places
 
-router.get("/:price/sorted", PlaceController.getSortedPlaces);
+router.get('/sorted/:price', PlaceController.getSortedPlaces);
 
 /* GET Place. */
-router.get("/:id", PlaceController.getPlace);
+router.get('/:id', PlaceController.getPlace);
 
 // Update Place
-router.put("/:id", PlaceController.updatePlace);
+router.put('/:id', PlaceController.updatePlace);
 
 // Delete Place
-router.delete("/:id", PlaceController.deletePlace);
+router.delete('/:id', PlaceController.deletePlace);
 
 module.exports = router;

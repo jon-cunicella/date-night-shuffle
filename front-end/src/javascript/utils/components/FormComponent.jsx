@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
+import ButtonComponent from './ButtonComponent';
 
 class FormComponent extends React.Component {
-  constructor({ areas, getArea }) {
+  constructor({ areas, getArea, handleRandomModal }) {
     super();
     this.state = {
       areas: { areas },
       area: {},
-      userArea: "",
-      userSelectedPrice: "",
+      userArea: '',
+      userSelectedPrice: '',
       isSelected: false
     };
   }
@@ -28,7 +29,7 @@ class FormComponent extends React.Component {
     if (isSelected) {
       const areas = this.props.areas;
       return (
-        <form className="wheel-form">
+        <>
           <select
             name="areas"
             id="area-dropdown"
@@ -43,25 +44,29 @@ class FormComponent extends React.Component {
               </option>
             ))}
           </select>
-          <select
-            name="prices"
-            id="price-dropdown"
-            onChange={this.handlePriceChange}
-          >
-            <option value="select-price" disabled selected>
-              Select a Price
-            </option>
-            <option className="price" value={"$"}>
-              $
-            </option>
-            <option className="price" value={"$$"}>
-              $$
-            </option>
-            <option className="price" value={"$$$"}>
-              $$$
-            </option>
-          </select>
-        </form>
+          <section className="area-selected">
+            <ButtonComponent handleRandomModal={this.props.handleRandomModal} />
+            <p className="or-selector">OR</p>
+            <select
+              name="prices"
+              id="price-dropdown"
+              onChange={this.handlePriceChange}
+            >
+              <option value="select-price" disabled selected>
+                Filter by Price
+              </option>
+              <option className="price" value={'$'}>
+                $
+              </option>
+              <option className="price" value={'$$'}>
+                $$
+              </option>
+              <option className="price" value={'$$$'}>
+                $$$
+              </option>
+            </select>
+          </section>
+        </>
       );
     } else {
       const areas = this.props.areas;
