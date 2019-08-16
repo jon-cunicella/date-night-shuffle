@@ -8,5 +8,6 @@ module.exports = mongoose.model("Place", {
   area: { type: String },
   longitude: { type: String },
   latitude: { type: String },
-  image: { type: String }
+  image: { type: String },
+  areaImage: { type: String }
 });
