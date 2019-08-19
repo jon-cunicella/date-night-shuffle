@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+select {
+  outline: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -151,23 +155,6 @@ li:hover {
   align-items: center;
 }
 
-.priceRating {
-  grid-area: priceRating;
-  padding: 0.5rem;
-}
-
-.priceRating--inverted {
-  align-items: flex-end;
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
-  transform: scaleY(-1);
-}
-
-.place-card__rating--inverted {
-  transform: scaleX(-1);
-}
-
 .card-content {
   display: flex;
   justify-content: space-around;
@@ -246,11 +233,7 @@ li:hover {
   display: none;
 }
 
-.random-place-button {
-}
-
 .card-wrapper {
-  /* opacity: 0.6; */
   min-height: 100%;
   background-size: cover;
 }
@@ -294,7 +277,7 @@ li:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 150px 150px;
+    box-shadow: 0 10px 0 10px;
   }
 
   .modal-image {
