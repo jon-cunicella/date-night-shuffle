@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 * {
   box-sizing: border-box;
@@ -12,7 +12,7 @@ a {
 }
 
 html {
-  font-family: 'Roboto', serif;
+  font-family: "Roboto", serif;
   font: 18px/1.5;
   --rasin-black: #252422;
   --dark-purple: #39222e;
@@ -50,11 +50,11 @@ img {
   display: grid;
   grid-template-rows: 6rem auto 3rem;
   grid-template-areas:
-    'header'
-    'main'
-    'footer';
+    "header"
+    "main"
+    "footer";
   min-height: 100vh;
-  background-image: url('../Capture.JPG');
+  background-image: url("../Capture.JPG");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -125,8 +125,6 @@ li:hover {
   grid-template-columns: 0.5fr 0.5fr;
   grid-gap: 2rem 50%;
   grid-area: main;
-  /* height: 50%;
-  width: 50%; */
 }
 
 .place-card {
@@ -137,13 +135,7 @@ li:hover {
   border-radius: 15px;
   box-shadow: 9px 12px 3px black;
   color: black;
-  /* display: grid; */
   font-size: 28px;
-  /* grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    'priceRating'
-    'name'
-    'ratingPrice'; */
   height: 20rem;
   max-height: 30rem;
   width: 12rem;
@@ -195,9 +187,9 @@ li:hover {
   background: #252422;
   width: 80%;
   height: 85%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 10%;
+  left: 10%;
+  /* transform: translate(-50%, -50%); */
   box-shadow: 0 0 150px 150px;
 }
 
@@ -206,7 +198,7 @@ li:hover {
   width: 1rem;
   height: 1.15rem;
   background-size: cover;
-  background-image: url('../Neon-Close-Button.png');
+  background-image: url("../Neon-Close-Button.png");
   background-color: #252525;
   border: none;
 }
@@ -277,11 +269,11 @@ li:hover {
     grid-template-rows: 6rem 1fr 3rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-      'header header header'
-      'main main main'
-      'footer footer footer';
+      "header header header"
+      "main main main"
+      "footer footer footer";
     min-height: 100vh;
-    background-image: url('../Capture.PNG');
+    background-image: url("../Capture.PNG");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -291,7 +283,7 @@ li:hover {
     display: grid;
     grid-template-columns: 0.5fr;
     grid-area: main;
-    margin: 0 auto;
+    margin: 3rem auto;
   }
 
   .modal-main {
@@ -313,5 +305,12 @@ li:hover {
 
   .modal-image__area {
     height: 20vh;
+  }
+
+  .area-selected {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
