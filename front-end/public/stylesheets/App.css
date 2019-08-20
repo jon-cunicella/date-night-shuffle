@@ -125,8 +125,6 @@ li:hover {
   grid-template-columns: 0.5fr 0.5fr;
   grid-gap: 2rem 50%;
   grid-area: main;
-  /* height: 50%;
-  width: 50%; */
 }
 
 .place-card {
@@ -137,13 +135,7 @@ li:hover {
   border-radius: 15px;
   box-shadow: 9px 12px 3px black;
   color: black;
-  /* display: grid; */
   font-size: 28px;
-  /* grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    'priceRating'
-    'name'
-    'ratingPrice'; */
   height: 20rem;
   max-height: 30rem;
   width: 12rem;
@@ -254,11 +246,7 @@ li:hover {
   display: none;
 }
 
-.random-place-button {
-}
-
 .card-wrapper {
-  /* opacity: 0.6; */
   min-height: 100%;
   background-size: cover;
 }
