@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import Layout from "./javascript/utils/components/Layout";
 import PlaceCardList from "./javascript/utils/components/PlaceCardList";
 import RandomModal from "./javascript/utils/components/RandomModal";
 import PlaceCardModal from "./javascript/utils/components/PlaceCardModal";
+=======
+import React, { useEffect, useState } from 'react';
+import Layout from './javascript/utils/components/Layout';
+import PlaceCardList from './javascript/utils/components/PlaceCardList';
+import RandomModal from './javascript/utils/components/RandomModal';
+import PlaceCardModal from './javascript/utils/components/PlaceCardModal';
+>>>>>>> dev
 
 const App = () => {
   const [areas, setAreas] = useState([]);
@@ -80,18 +88,21 @@ const App = () => {
           renderModal={renderModal}
         />
       </Layout>
-      {showCardModal && (
+      {showPlaceCardModal && (
         <PlaceCardModal
           showPlaceCardModal={showPlaceCardModal}
           closePlaceCardModal={closePlaceCardModal}
           place={singleModalPlace}
         />
       )}
-      <RandomModal
-        showRandomModal={showRandomModal}
-        closeRandomModal={closeRandomModal}
-        place={randomPlace}
-      />
+
+      {showRandomModal && (
+        <RandomModal
+          showRandomModal={showRandomModal}
+          closeRandomModal={closeRandomModal}
+          randomPlace={randomPlace}
+        />
+      )}
     </div>
   );
 };

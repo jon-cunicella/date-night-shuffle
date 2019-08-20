@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleMap from './GoogleMap.jsx';
+import GoogleMapPlaceCard from './GoogleMapPlaceCard';
 
 const PlaceCardModal = ({ closePlaceCardModal, showPlaceCardModal, place }) => {
   const showHideClassName = showPlaceCardModal
@@ -9,12 +9,7 @@ const PlaceCardModal = ({ closePlaceCardModal, showPlaceCardModal, place }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <button className="modal-button" onClick={closePlaceCardModal}>
-          {/* <img
-            src={'../../../../public/Neon Close Button.png'}
-            alt="Close Button"
-          /> */}
-        </button>
+        <button className="modal-button" onClick={closePlaceCardModal} />
         <div className="modal-content">
           <div className="modal-content__container">
             <div className="modal-image">
@@ -38,7 +33,7 @@ const PlaceCardModal = ({ closePlaceCardModal, showPlaceCardModal, place }) => {
           </div>
         </div>
         <div className="google-map">
-          <GoogleMap
+          <GoogleMapPlaceCard
             name={place.name}
             lat={place.latitude}
             long={place.longitude}

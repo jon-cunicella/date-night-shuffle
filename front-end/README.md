@@ -1,3 +1,20 @@
+#Date Night Shuffle
+This app was created to solve the problem of indecisiveness when choosing a restaurant for a date. 
+Users have the ability to filter restaurants by price and location, or pick a restaurant at random 
+with an 'I'm feeling lucky' button. This application was built with react on the frontend and Express/MongoDB on the backend.
+
+To run, clone the repository, run npm install, and then npm run start on both the front and backend.
+
+![Date Night Shuffle](https://github.com/team-javascript/date-night-roulette/blob/dev/front-end/public/ScreenCapForReadme.PNG)
+
+#Dependencies
+React
+Mongoose
+Express
+Nodemon
+google-maps-api
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

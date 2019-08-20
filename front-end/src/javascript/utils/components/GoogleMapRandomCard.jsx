@@ -6,13 +6,10 @@ const mapStyles = {
   height: '40%'
 };
 
-export class GoogleMap extends Component {
+export class GoogleMapRandomCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name,
-      lat: this.props.lat,
-      long: this.props.long,
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {}
@@ -38,44 +35,51 @@ export class GoogleMap extends Component {
     }
   };
 
-  displayMarkers = () => {
-    return (
-      <Marker
-        position={{
-          lat: this.state.long,
-          lng: this.state.lat,
-          title: this.state.name
-        }}
-        onClick={() => {
-          this.onMarkerClick();
-        }}
-      />
-    );
-  };
+  //   displayMarkers = () => {
+  //     return (
+  //       <Marker
+  //         position={{
+  //           lat: this.props.longitude,
+  //           lng: this.props.latitude,
+  //           title: this.props.randomName
+  //         }}
+  //         onClick={() => {
+  //           this.onMarkerClick();
+  //         }}
+  //       />
+  //     );
+  //   };
 
   displayPaper = () => {
-    return <p>{this.state.name}</p>;
+    return <p>{this.props.randomName}</p>;
   };
 
   render() {
+    // console.log(this.props);
     return (
       <Map
         google={this.props.google}
         zoom={14}
         style={mapStyles}
         initialCenter={{
-          lat: this.state.long,
-          lng: this.state.lat
+          lat: this.props.longitude,
+          lng: this.props.latitude
         }}
       >
-        {this.displayMarkers()}
-        <InfoWindow
+        <Marker
+          position={{
+            lat: this.props.longitude,
+            lng: this.props.latitude,
+            title: this.props.name
+          }}
+        />
+        {/* <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClick={() => {
             this.onMapClick();
           }}
-        />
+        /> */}
       </Map>
     );
   }
@@ -83,4 +87,4 @@ export class GoogleMap extends Component {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCfHElWY6iblnS-6RrlhaENB2ke-nF2QyQ'
-})(GoogleMap);
+})(GoogleMapRandomCard);
