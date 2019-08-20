@@ -3,7 +3,6 @@ This app was created to solve the problem of indecisiveness when choosing a rest
 
 ![ApplicationScreenshot](/public/ScreenCapForReadme.png)
 
-askdjkfakj,dsfjksddfkjl
 #Dependencies
 React
 Mongoose
@@ -13,7 +12,6 @@ google-maps-api
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-asliudfjkasdkjfaskdfkj
 
 ## Available Scripts
 
