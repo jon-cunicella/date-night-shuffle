@@ -36,7 +36,6 @@ const App = () => {
   };
   const renderModal = () => {
     setShowCardModal(true);
-    // console.log(showPlaceCardModal);
     getPlaceCardModalState(showCardModal);
   };
 
@@ -67,7 +66,7 @@ const App = () => {
   };
 
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Layout
         areas={areas}
         getArea={getArea}

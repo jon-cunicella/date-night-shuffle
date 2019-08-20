@@ -35,19 +35,6 @@ export class GoogleMapPlaceCard extends Component {
     }
   };
 
-  // displayMarkers = () => {
-  //   return (
-  //     <Marker
-  //       position={{
-  //         lat: this.props.long,
-  //         lng: this.props.lat,
-  //         title: this.props.name
-  //       }}
-
-  //     />
-  //   );
-  // };
-
   displayPaper = () => {
     return <p>{this.props.name}</p>;
   };
@@ -70,13 +57,6 @@ export class GoogleMapPlaceCard extends Component {
             title: this.props.name
           }}
         />
-        {/* <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClick={() => {
-            this.onMapClick(this.props);
-          }}
-        /> */}
       </Map>
     );
   }

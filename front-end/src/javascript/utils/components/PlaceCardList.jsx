@@ -10,11 +10,9 @@ const PlaceCardList = ({
   async function handleOnClick(place) {
     await updateSingleModalPlace(place);
     await renderModal();
-    // console.log(place.latitude);
   }
 
   if (userSelectedPrice === undefined) {
-    // list of unfiltered places
     return (
       <ul className="place-card-list">
         {places.map(place => (
@@ -24,8 +22,7 @@ const PlaceCardList = ({
         ))}
       </ul>
     );
-  } // filtered list of places
-  else
+  } else
     return (
       <ul className="place-card-list">
         {places

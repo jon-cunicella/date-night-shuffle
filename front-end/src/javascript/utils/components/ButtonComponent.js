@@ -7,7 +7,7 @@ const Button = ({ handleRandomModal }) => {
   }
 
   return (
-    <button className={styles.button} type='button' onClick={buttonClick}>
+    <button className={styles.button} type="button" onClick={buttonClick}>
       I'm Feeling Lucky
     </button>
   );
