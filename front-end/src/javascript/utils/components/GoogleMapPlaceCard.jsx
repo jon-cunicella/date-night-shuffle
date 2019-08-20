@@ -6,13 +6,10 @@ const mapStyles = {
   height: '40%'
 };
 
-export class GoogleMap extends Component {
+export class GoogleMapPlaceCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name,
-      lat: this.props.lat,
-      long: this.props.long,
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {}
@@ -38,23 +35,21 @@ export class GoogleMap extends Component {
     }
   };
 
-  displayMarkers = () => {
-    return (
-      <Marker
-        position={{
-          lat: this.state.long,
-          lng: this.state.lat,
-          title: this.state.name
-        }}
-        onClick={() => {
-          this.onMarkerClick();
-        }}
-      />
-    );
-  };
+  // displayMarkers = () => {
+  //   return (
+  //     <Marker
+  //       position={{
+  //         lat: this.props.long,
+  //         lng: this.props.lat,
+  //         title: this.props.name
+  //       }}
+
+  //     />
+  //   );
+  // };
 
   displayPaper = () => {
-    return <p>{this.state.name}</p>;
+    return <p>{this.props.name}</p>;
   };
 
   render() {
@@ -64,18 +59,24 @@ export class GoogleMap extends Component {
         zoom={14}
         style={mapStyles}
         initialCenter={{
-          lat: this.state.long,
-          lng: this.state.lat
+          lat: this.props.long,
+          lng: this.props.lat
         }}
       >
-        {this.displayMarkers()}
-        <InfoWindow
+        <Marker
+          position={{
+            lat: this.props.long,
+            lng: this.props.lat,
+            title: this.props.name
+          }}
+        />
+        {/* <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClick={() => {
-            this.onMapClick();
+            this.onMapClick(this.props);
           }}
-        />
+        /> */}
       </Map>
     );
   }
@@ -83,4 +84,4 @@ export class GoogleMap extends Component {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCfHElWY6iblnS-6RrlhaENB2ke-nF2QyQ'
-})(GoogleMap);
+})(GoogleMapPlaceCard);
