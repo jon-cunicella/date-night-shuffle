@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import Layout from './javascript/utils/components/Layout';
-import PlaceCardList from './javascript/utils/components/PlaceCardList';
-import RandomModal from './javascript/utils/components/RandomModal';
-import PlaceCardModal from './javascript/utils/components/PlaceCardModal';
-import ButtonComponent from './javascript/utils/components/ButtonComponent';
+import React, { useEffect, useState } from "react";
+import Layout from "./javascript/utils/components/Layout";
+import PlaceCardList from "./javascript/utils/components/PlaceCardList";
+import RandomModal from "./javascript/utils/components/RandomModal";
+import PlaceCardModal from "./javascript/utils/components/PlaceCardModal";
 
 const App = () => {
   const [areas, setAreas] = useState([]);
@@ -12,12 +11,12 @@ const App = () => {
   const [randomPlace, setRandomPlace] = useState({});
   const [showRandomModal, setShowRandomModal] = useState(false);
   const [showPlaceCardModal, setShowPlaceCardModal] = useState(false);
-  const [userAreaId, setUserAreaId] = useState('');
+  const [userAreaId, setUserAreaId] = useState("");
   const [singleModalPlace, setSingleModalPlace] = useState({});
   const [showCardModal, setShowCardModal] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/areas')
+    fetch("http://localhost:4000/api/areas")
       .then(res => res.json())
       .then(areas => setAreas(areas));
   }, []);
@@ -37,7 +36,6 @@ const App = () => {
   };
   const renderModal = () => {
     setShowCardModal(true);
-    // console.log(showPlaceCardModal);
     getPlaceCardModalState(showCardModal);
   };
 

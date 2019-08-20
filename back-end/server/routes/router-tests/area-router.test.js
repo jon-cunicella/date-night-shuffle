@@ -22,11 +22,11 @@ describe("Area Router", () => {
           if (err) return done(err);
           expect(Area.create.mock.calls.length).toEqual(1);
           expect(Area.find.mock.calls.length).toEqual(1);
-          done();
         });
 
       Area.create.mockReset();
       Area.find.mockReset();
+      done();
     });
   });
 
@@ -38,10 +38,10 @@ describe("Area Router", () => {
         .end(function(err, res) {
           if (err) return done(err);
           expect(Area.find.mock.calls.length).toEqual(1);
-          done();
         });
 
       Area.find.mockReset();
+      done();
     });
   });
 
@@ -53,10 +53,10 @@ describe("Area Router", () => {
         .end(function(err, res) {
           if (err) return done(err);
           expect(Area.findOne.mock.calls.length).toEqual(1);
-          done();
         });
 
       Area.findOne.mockReset();
+      done();
     });
   });
 
@@ -68,10 +68,10 @@ describe("Area Router", () => {
         .end(function(err, res) {
           if (err) return done(err);
           expect(Area.findByIdAndUpdate.mock.calls.length).toEqual(1);
-          done();
         });
 
       Area.findByIdAndUpdate.mockReset();
+      done();
     });
   });
 
@@ -83,10 +83,10 @@ describe("Area Router", () => {
         .end(function(err, res) {
           if (err) return done(err);
           expect(Area.remove.mock.calls.length).toEqual(1);
-          done();
         });
 
       Area.remove.mockReset();
+      done();
     });
   });
 
@@ -98,10 +98,10 @@ describe("Area Router", () => {
         .end(function(err, res) {
           if (err) return done(err);
           expect(Area.findOne.mock.calls.length).toEqual(1);
-          done();
         });
 
       Area.findOne.mockReset();
+      done();
     });
   });
 });

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import PlaceCard from './PlaceCard';
+import React from "react";
+import PlaceCard from "./PlaceCard";
 
 const PlaceCardList = ({
   places,
@@ -10,7 +10,6 @@ const PlaceCardList = ({
   async function handleOnClick(place) {
     await updateSingleModalPlace(place);
     await renderModal();
-    // console.log(place.latitude);
   }
 
   if (userSelectedPrice === undefined) {

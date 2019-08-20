@@ -1,5 +1,5 @@
-import React from 'react';
-import FormComponent from './FormComponent';
+import React from "react";
+import FormComponent from "./FormComponent";
 
 const Header = ({
   areas,

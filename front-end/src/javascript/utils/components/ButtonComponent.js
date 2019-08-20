@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './ButtonComponent.module.css';
+import React from "react";
+import styles from "./ButtonComponent.module.css";
 
 const Button = ({ handleRandomModal }) => {
   return (

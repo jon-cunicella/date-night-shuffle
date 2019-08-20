@@ -6,7 +6,7 @@ export default function RenderFooter() {
     <footer className="footer">
       {/* dynamic date for the copyright */}
       <small className="copy">
-        &copy; {date.getFullYear} - Date Night Shuffle
+        &copy; {date.getFullYear()} - Date Night Shuffle
       </small>
     </footer>
   );

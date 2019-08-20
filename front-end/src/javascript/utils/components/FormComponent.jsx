@@ -1,14 +1,14 @@
-import React from 'react';
-import ButtonComponent from './ButtonComponent';
+import React from "react";
+import ButtonComponent from "./ButtonComponent";
 
 class FormComponent extends React.Component {
-  constructor({ areas, getArea, handleRandomModal }) {
+  constructor({ areas }) {
     super();
     this.state = {
       areas: { areas },
       area: {},
-      userArea: '',
-      userSelectedPrice: '',
+      userArea: "",
+      userSelectedPrice: "",
       isSelected: false
     };
   }
@@ -35,7 +35,11 @@ class FormComponent extends React.Component {
             id="area-dropdown"
             onChange={this.handleAreaChange}
           >
-            <option value="select-area" disabled selected>
+            <option
+              value="select an Area"
+              disabled
+              placeholder="Select an Area"
+            >
               Select an Area
             </option>
             {areas.map(area => (
@@ -55,13 +59,13 @@ class FormComponent extends React.Component {
               <option value="select-price" disabled selected>
                 Filter by Price
               </option>
-              <option className="price" value={'$'}>
+              <option className="price" value={"$"}>
                 $
               </option>
-              <option className="price" value={'$$'}>
+              <option className="price" value={"$$"}>
                 $$
               </option>
-              <option className="price" value={'$$$'}>
+              <option className="price" value={"$$$"}>
                 $$$
               </option>
             </select>
@@ -74,10 +78,15 @@ class FormComponent extends React.Component {
         <form className="wheel-form">
           <select
             name="areas"
-            id="area-dropdown"
+            className="area-dropdown"
             onChange={this.handleAreaChange}
           >
-            <option value="select-area" disabled selected>
+            <option
+              className="defaultAreaOption"
+              value="select-area"
+              disabled
+              selected
+            >
               Select an Area
             </option>
             {areas.map(area => (
