@@ -68,8 +68,8 @@ export class GoogleMapRandomCard extends Component {
       >
         <Marker
           position={{
-            lat: this.props.long,
-            lng: this.props.lat,
+            lat: this.props.longitude,
+            lng: this.props.latitude,
             title: this.props.name
           }}
         />
