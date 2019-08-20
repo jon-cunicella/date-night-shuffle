@@ -81,7 +81,7 @@ const App = () => {
           renderModal={renderModal}
         />
       </Layout>
-      {showCardModal && (
+      {showPlaceCardModal && (
         <PlaceCardModal
           showPlaceCardModal={showPlaceCardModal}
           closePlaceCardModal={closePlaceCardModal}
