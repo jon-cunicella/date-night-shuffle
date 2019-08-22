@@ -5,5 +5,9 @@ module.exports = mongoose.model("Place", {
   price: { type: String },
   category: { type: String },
   rating: { type: Number },
-  area: { type: String }
+  area: { type: String },
+  longitude: { type: String },
+  latitude: { type: String },
+  image: { type: String },
+  areaImage: { type: String }
 });

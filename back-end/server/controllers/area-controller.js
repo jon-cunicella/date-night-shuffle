@@ -1,5 +1,5 @@
-const Area = require('../models/area-model');
-const Place = require('../models/place-model');
+const Area = require("../models/area-model");
+const Place = require("../models/place-model");
 
 class AreaController {
   //get Areas
@@ -10,14 +10,14 @@ class AreaController {
   static async getArea(req, res) {
     const id = req.params.id;
 
-    res.json(await Area.findOne({ _id: id }).populate('places'));
+    res.json(await Area.findOne({ _id: id }).populate("places"));
   }
 
   // Get Random Place from Area
 
   static async getRandomPlace(req, res, next) {
     const id = req.params.id;
-    const area = await Area.findOne({ _id: id }).populate('places');
+    const area = await Area.findOne({ _id: id }).populate("places");
     const randomIndex = Math.floor(Math.random() * area.places.length);
     res.json(await area.places[randomIndex]);
   }
@@ -30,10 +30,10 @@ class AreaController {
       name: name
     });
 
-    res.send(await Area.find());
+    res.json(await Area.find());
   }
 
-  //Update an Album
+  //Update an Area
   static async updateArea(req, res) {
     const id = req.params.id;
     const updates = req.body;
@@ -45,7 +45,7 @@ class AreaController {
       changes[updateKey] = updates[updateKey];
     }
 
-    res.send(
+    res.json(
       await Area.findByIdAndUpdate(
         { _id: id },
         { $set: changes },
@@ -58,7 +58,7 @@ class AreaController {
   static async deleteArea(req, res) {
     const id = req.params.id;
 
-    res.send(await Area.remove({ _id: id }));
+    res.json(await Area.remove({ _id: id }));
   }
 
   /// Add Place to area
@@ -66,13 +66,13 @@ class AreaController {
     const id = req.params.id;
     const placesToAdd = req.body;
 
-    const areaToUpdate = await Area.findById({ _id: id });
+    const areaToUpdate = await Area.findOne({ _id: id });
     placesToAdd.forEach(place => {
       areaToUpdate.places.push(place);
     });
     areaToUpdate.save(areaToUpdate);
 
-    res.send(await areaToUpdate);
+    res.json(await areaToUpdate);
   }
 }
 

@@ -1,11 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+select {
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 html {
-  font: 18px/1.5 serif;
+  font-family: "Roboto", serif;
+  font: 18px/1.5;
   --rasin-black: #252422;
   --dark-purple: #39222e;
   --burnt-brown: #a37774;
@@ -16,17 +28,37 @@ html {
 ul {
   list-style: none;
 }
+body::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+.area-selected {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 1rem;
+}
+
+.or-selector {
+  font-size: 2rem;
+  color: var(--weldon-blue);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
 .wrapper {
   display: grid;
-  grid-template-rows: 6rem 1fr 3rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 6rem auto 3rem;
   grid-template-areas:
-    "header header header"
-    "main main main"
-    "footer footer footer";
+    "header"
+    "main"
+    "footer";
   min-height: 100vh;
-  background-image: url("../Capture.PNG");
+  background-image: url("../Capture.JPG");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -48,18 +80,26 @@ ul {
 }
 
 select {
-  background-color: var(--black-olive);
-  color: var(--weldon-blue);
-  width: 15rem;
-  margin-top: 1rem;
+  background-color: var(--weldon-blue);
+  color: var(--black-olive);
   font-size: 24px;
   border: none;
   border-radius: 25px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 option {
   background-color: var(--black-olive);
   color: var(--weldon-blue);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+li:hover {
+  cursor: pointer;
 }
 
 .footer {
@@ -87,29 +127,173 @@ option {
 .place-card-list {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  column-gap: 50%;
+  grid-gap: 2rem 50%;
   grid-area: main;
-  transform: translateY(10px);
-  transition: 2000ms;
 }
 
 .place-card {
-  align-items: center;
+  align-self: center;
+  justify-self: center;
   background-color: var(--black-olive);
-  color: var(--burnt-brown);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 8rem 1rem;
-  text-align: center;
   border: 10px solid white;
   border-radius: 15px;
-  box-shadow: 5px 8px 3px black;
-  min-height: 20rem;
-  margin-bottom: 1rem;
+  box-shadow: 9px 12px 3px black;
+  color: black;
+  font-size: 28px;
+  height: 20rem;
+  max-height: 30rem;
+  width: 12rem;
   max-width: 15rem;
+  font-size: 1.4rem;
 }
 
-.place-card-info {
-  font-size: 28px;
+.place-card__title {
+  display: flex;
+  grid-area: name;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: #252422;
+  width: 80%;
+  height: 85%;
+  top: 10%;
+  left: 10%;
+  /* transform: translate(-50%, -50%); */
+  box-shadow: 0 0 150px 150px;
+}
+
+.modal-button {
+  margin: 0.5rem;
+  width: 1rem;
+  height: 1.15rem;
+  background-size: cover;
+  background-image: url("../Neon-Close-Button.png");
+  background-color: #252525;
+  border: none;
+}
+
+.modal-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image__area {
+  height: 40vh;
+}
+
+.google-map {
+  width: 2vw;
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-text-stroke: 0.5px white;
+}
+
+.modal-content__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #7f989b;
+  -webkit-text-stroke: 0.5px white;
+}
+
+.modal-place__title {
+  text-align: center;
+  color: #7f989b;
+  -webkit-text-stroke: 0.5px white;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.card-wrapper {
+  min-height: 100%;
+  background-size: cover;
+}
+
+.overlay {
+  color: #f7cc94ee;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  height: 19rem;
+}
+
+@media only screen and (max-width: 600px) {
+  wrapper {
+    display: grid;
+    grid-template-rows: 6rem 1fr 3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header"
+      "main main main"
+      "footer footer footer";
+    min-height: 100vh;
+    background-image: url("../Capture.PNG");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .place-card-list {
+    display: grid;
+    grid-template-columns: 0.5fr;
+    grid-area: main;
+    margin: 3rem auto;
+  }
+
+  .modal-main {
+    position: fixed;
+    background: #666666;
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 10px 0 10px;
+  }
+
+  .modal-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-image__area {
+    height: 20vh;
+  }
+
+  .area-selected {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -10,15 +10,13 @@ describe("footer", () => {
   });
 
   test("renders a footer element", () => {
-    expect(
-      entryPoint.querySelector(".footer") instanceof HTMLElement
-    ).toBeTruthy();
+    expect(entryPoint.querySelector(".footer").tagName).toMatch("FOOTER");
   });
   test("footer contains a small tag with copyright", () => {
     expect(entryPoint.querySelector(".copy").tagName).toMatch("SMALL");
 
     expect(entryPoint.querySelector(".copy").textContent).toBe(
-      `© 2019 - Date Night Roulette`
+      `© 2019 - Date Night Shuffle`
     );
   });
 });
