@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font: 18px/1.5 serif;
+  --rasin-black: #252422;
+  --dark-purple: #39222e;
+  --burnt-brown: #a37774;
+  --black-olive: #403d39;
+  --weldon-blue: #7f989b;
+}
+
+ul {
+  list-style: none;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 6rem 1fr 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+  min-height: 100vh;
+  background-image: url("../Capture.PNG");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.main-header {
+  color: var(--dark-purple);
+  text-align: center;
+  grid-area: header;
+}
+
+.wheel-form {
+  display: flex;
+  flex-direction: column;
+  grid-area: form;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+select {
+  background-color: var(--black-olive);
+  color: var(--weldon-blue);
+  width: 15rem;
+  margin-top: 1rem;
+  font-size: 24px;
+  border: none;
+  border-radius: 25px;
+}
+
+option {
+  background-color: var(--black-olive);
+  color: var(--weldon-blue);
+}
+
+.footer {
+  align-items: center;
+  color: white;
+  display: flex;
+  grid-area: footer;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-area: main;
+}
+
+.content__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.place-card-list {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  column-gap: 50%;
+  grid-area: main;
+  transform: translateY(10px);
+  transition: 2000ms;
+}
+
+.place-card {
+  align-items: center;
+  background-color: var(--black-olive);
+  color: var(--burnt-brown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 8rem 1rem;
+  text-align: center;
+  border: 10px solid white;
+  border-radius: 15px;
+  box-shadow: 5px 8px 3px black;
+  min-height: 20rem;
+  margin-bottom: 1rem;
+  max-width: 15rem;
+}
+
+.place-card-info {
+  font-size: 28px;
+}
